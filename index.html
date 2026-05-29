@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>SQUADRON | PCB Design | Embedded Solutions | Product Development</title>
+  <meta name="description" content="SQUADRON specializes in custom PCB design, embedded systems development, IoT integration, and end-to-end hardware and firmware engineering solutions based in Mumbai, India.">
+  <meta name="keywords" content="PCB Design Mumbai, Embedded Systems Development, Product Development Company, Electronics Design Services, Custom Hardware Design, IoT Solutions, Hardware Development Mumbai, R&D Electronics">
+  <meta name="author" content="SQUADRON">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>'">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#home" class="logo" id="headerLogo">
+        SQUADRON<span class="logo-dot"></span>
+      </a>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 1. Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg-wrapper">
+      <img src="images/hero-bg.png" alt="SQUADRON Circuit Board Background" class="hero-bg-image">
+      <div class="hero-bg-overlay"></div>
+    </div>
+    <div class="hero-grid"></div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-brand">SQUADRON</span>
+        <h1 class="hero-title">Innovative Electronics & Embedded Systems</h1>
+        <p class="hero-tagline">Providing state-of-the-art Custom PCB Designing, Embedded Firmware, IoT Solutions, and End-to-End Product Development.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary" id="heroBtnContact">
+            Contact Us <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#projects" class="btn btn-secondary" id="heroBtnProjects">
+            View Projects <i class="fa-solid fa-microchip"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. About Us Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-info">
+          <span class="about-tag">Who We Are</span>
+          <h2 class="about-title">Pioneering Hardware Engineering from Concept to Production</h2>
+          <p class="about-text">
+            SQUADRON is an engineering hub specializing in advanced electronic product development. We translate complex product requirements into robust, deployable hardware solutions. Our cross-disciplinary expertise spans hardware schematic capture, multi-layer PCB design, low-level firmware architecture, and wireless IoT cloud integrations.
+          </p>
+          <a href="#contact" class="btn btn-secondary" id="aboutBtnExplore">Get a Quote</a>
+        </div>
+        
+        <div class="about-specialties">
+          <h3 style="margin-bottom: 20px; font-size: 1.25rem; color: var(--accent);">Our Core Capabilities</h3>
+          <div class="specialties-grid">
+            <div class="specialty-item">
+              <div class="specialty-icon"><i class="fa-solid fa-layer-group"></i></div>
+              <span class="specialty-title">Custom PCB Designing</span>
+            </div>
+            <div class="specialty-item">
+              <div class="specialty-icon"><i class="fa-solid fa-microchip"></i></div>
+              <span class="specialty-title">Embedded Systems</span>
+            </div>
+            <div class="specialty-item">
+              <div class="specialty-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+              <span class="specialty-title">Product Design</span>
+            </div>
+            <div class="specialty-item">
+              <div class="specialty-icon"><i class="fa-solid fa-flask"></i></div>
+              <span class="specialty-title">Research & Development</span>
+            </div>
+            <div class="specialty-item">
+              <div class="specialty-icon"><i class="fa-solid fa-wifi"></i></div>
+              <span class="specialty-title">IoT Solutions</span>
+            </div>
+            <div class="specialty-item">
+              <div class="specialty-icon"><i class="fa-solid fa-terminal"></i></div>
+              <span class="specialty-title">Hardware & Firmware</span>
+            </div>
+            <div class="specialty-item">
+              <div class="specialty-icon"><i class="fa-solid fa-industry"></i></div>
+              <span class="specialty-title">Prototype Development</span>
+            </div>
+            <div class="specialty-item">
+              <div class="specialty-icon"><i class="fa-solid fa-rocket"></i></div>
+              <span class="specialty-title">End-to-End Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">What We Deliver</span>
+        <h2 class="section-title">Our Engineering Services</h2>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card" id="servicePcb">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h3>Custom PCB Design</h3>
+          <p>Professional design of single-layer, double-layer, and high-density multi-layer PCBs, optimized for signal integrity, thermal dissipation, and manufacturability.</p>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card" id="serviceEmbedded">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h3>Embedded Solutions</h3>
+          <p>Microcontroller board architecture design and optimized low-level firmware engineering (C/C++) for critical real-time performance and absolute reliability.</p>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card" id="serviceProduct">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <h3>Product Development</h3>
+          <p>Complete product engineering roadmap support spanning structural conceptualization, physical component sourcing, functional assembly, and volume production.</p>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="service-card" id="serviceRd">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-flask"></i>
+          </div>
+          <h3>R&D Services</h3>
+          <p>Comprehensive feasibility research, sensor characterization, circuit testing, design validation, and hardware innovation support for complex patents.</p>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="service-card" id="serviceDesign">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-pen-ruler"></i>
+          </div>
+          <h3>Product Design</h3>
+          <p>Detailed electronic hardware engineering coupled with physical enclosure modeling and mechanical component integration for seamless fit and finish.</p>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="service-card" id="serviceIot">
+          <div class="service-icon-box">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <h3>IoT Solutions</h3>
+          <p>Cloud-connected smart telemetry devices, sensor mesh networks, wireless protocols (WiFi, BLE, LoRa, cellular), and real-time remote monitoring systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Products / Projects Gallery -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Our Work</span>
+        <h2 class="section-title">Completed Products & Projects</h2>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filter" id="galleryFilter">
+        <!-- Generated Dynamically by JS -->
+      </div>
+
+      <!-- Dynamic Project Cards Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Generated Dynamically by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal for Projects Details -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+      <div class="lightbox-close" id="lightboxClose">&times;</div>
+      <div class="lightbox-image-box">
+        <img src="" alt="" id="lightboxImg" class="lightbox-img">
+      </div>
+      <div class="lightbox-details">
+        <span class="lightbox-category" id="lightboxCategory">Category</span>
+        <h3 class="lightbox-title" id="lightboxTitle">Project Name</h3>
+        <p class="lightbox-desc" id="lightboxDesc">Project detailed description goes here...</p>
+        <h4 class="lightbox-tech-title">Technologies Used</h4>
+        <div class="lightbox-tags" id="lightboxTags">
+          <!-- Dynamically populated tags -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Why Choose Us Section -->
+  <section id="why-us" class="why-us">
+    <div class="container">
+      <div class="why-us-grid">
+        <div class="why-us-info">
+          <span style="color: var(--accent); font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 10px;">Our Value Proposition</span>
+          <h2>Why Partner with SQUADRON?</h2>
+          <p style="margin-bottom: 24px;">We combine advanced electronics research with industry-hardened manufacturing processes to deliver electronic products that stand out in reliability, scale, and cost efficiency.</p>
+          <a href="#contact" class="btn btn-primary" id="whyBtnQuote">Discuss Your Project</a>
+        </div>
+
+        <div class="why-us-points">
+          <!-- Point 1 -->
+          <div class="point-item">
+            <div class="point-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="point-content">
+              <h4>Custom Design Approach</h4>
+              <p>Every schematic and circuit layout is built from the ground up, optimized precisely to meet your constraints.</p>
+            </div>
+          </div>
+          <!-- Point 2 -->
+          <div class="point-item">
+            <div class="point-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="point-content">
+              <h4>End-to-End Development</h4>
+              <p>From early-stage simulation models to functional firmware deployment and physical casing assembly.</p>
+            </div>
+          </div>
+          <!-- Point 3 -->
+          <div class="point-item">
+            <div class="point-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="point-content">
+              <h4>Rapid Prototyping</h4>
+              <p>Quick turnaround times on functional hardware samples to support validation testing and product iterations.</p>
+            </div>
+          </div>
+          <!-- Point 4 -->
+          <div class="point-item">
+            <div class="point-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="point-content">
+              <h4>Industry Experience</h4>
+              <p>Proven track record of designing hardware compliance ready for EMI/EMC and industrial safety protocols.</p>
+            </div>
+          </div>
+          <!-- Point 5 -->
+          <div class="point-item">
+            <div class="point-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="point-content">
+              <h4>Embedded Hardware Expertise</h4>
+              <p>Direct component level optimization, custom bootloaders, battery management, and efficient low-power modes.</p>
+            </div>
+          </div>
+          <!-- Point 6 -->
+          <div class="point-item">
+            <div class="point-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="point-content">
+              <h4>Cost Effective Solutions</h4>
+              <p>Careful Bill-of-Materials (BOM) management to ensure minimum production cost without compromising performance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Get In Touch</span>
+        <h2 class="section-title">Contact Our Engineering Team</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div>
+            <h3 style="font-size: 1.75rem; margin-bottom: 16px;">SQUADRON</h3>
+            <p>Bring us your product diagrams, functional requirements, or hardware challenges. Let's build your next electronics system together.</p>
+          </div>
+
+          <div class="contact-details">
+            <!-- Address Card -->
+            <div class="contact-card">
+              <div class="contact-icon-box">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h4>Address</h4>
+                <p>1802, KSA HEIGHTS,<br>2ND SANKLI STREET,<br>BYCULLA WEST, MUMBAI,<br>MAHARASHTRA – 400008</p>
+              </div>
+            </div>
+
+            <!-- Mobile Card -->
+            <div class="contact-card">
+              <div class="contact-icon-box">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h4>Mobile Number</h4>
+                <p><a href="tel:+919930406232">+91 9930406232</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.875rem; color: var(--text-muted);">
+            Office hours: Monday - Saturday: 10:00 AM - 6:00 PM IST
+          </div>
+        </div>
+
+        <!-- Glassmorphic Form Wrapper -->
+        <div class="contact-form-wrapper">
+          <form id="contactForm">
+            <!-- Web3Forms Config Key -->
+            <!-- REPLACE value with your actual Web3Forms access key (e.g. from https://web3forms.com) -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="New Website Inquiry - SQUADRON">
+            <input type="hidden" name="from_name" value="SQUADRON Website Form">
+            
+            <div class="form-group">
+              <label for="formName" class="form-label">Full Name</label>
+              <input type="text" name="name" id="formName" class="form-control" placeholder="e.g. Rajesh Kumar" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="formMobile" class="form-label">Mobile Number</label>
+              <input type="tel" name="phone" id="formMobile" class="form-control" placeholder="e.g. +91 9930406232" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="formEmail" class="form-label">Email Address</label>
+              <input type="email" name="email" id="formEmail" class="form-control" placeholder="e.g. rajesh@company.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="formMessage" class="form-label">Requirement & Project Scope</label>
+              <textarea name="message" id="formMessage" class="form-control" placeholder="Describe your PCB design, firmware, or hardware development requirements..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; height: 50px;">
+              Submit Requirements <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            
+            <div id="formStatus" class="form-status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Google Maps Section -->
+  <section class="maps-section">
+    <iframe 
+      class="map-container"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.0805314073356!2d72.82583807584674!3d18.972051695211995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce0cc78c2e63%3A0xe54b9d0739c94ee2!2sSankli%20St%2C%20Byculla%20West%2C%20Byculla%2C%20Mumbai%2C%20Maharashtra%20400008!5e0!3m2!1sen!2sin!4v1780000000000!5m2!1sen!2sin" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      title="SQUADRON Location Map in Byculla West, Mumbai">
+    </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3 style="color: var(--text-highlight); font-weight: 800; letter-spacing: 0.05em; font-family: var(--font-heading);">
+          SQUADRON<span class="logo-dot"></span>
+        </h3>
+        <p>Providing high-precision hardware engineering, custom embedded boards, and rapid sensor prototyping from concept through production validation.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-contact">
+        <h4>Connect</h4>
+        <p><i class="fa-solid fa-phone" style="color: var(--accent); margin-right: 8px;"></i> <a href="tel:+919930406232">+91 9930406232</a></p>
+        <p><i class="fa-solid fa-location-dot" style="color: var(--accent); margin-right: 10px;"></i> 1802, KSA Heights, 2nd Sankli Street, Byculla West, Mumbai - 400008</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 SQUADRON. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#home">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
