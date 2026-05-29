@@ -36,9 +36,9 @@
       
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </div>
@@ -65,6 +65,31 @@
             View Projects <i class="fa-solid fa-microchip"></i>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Products / Projects Gallery -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Our Work</span>
+        <h2 class="section-title">Completed Products & Projects</h2>
+        <div style="margin-top: 15px;">
+          <button class="btn btn-secondary" id="openAdminPanelBtn" style="font-size: 0.85rem; padding: 8px 16px;">
+            <i class="fa-solid fa-plus" style="margin-right: 6px;"></i> Add Project Helper
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filter" id="galleryFilter">
+        <!-- Generated Dynamically by JS -->
+      </div>
+
+      <!-- Dynamic Project Cards Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Generated Dynamically by JS -->
       </div>
     </div>
   </section>
@@ -189,25 +214,7 @@
     </div>
   </section>
 
-  <!-- 4. Products / Projects Gallery -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">Our Work</span>
-        <h2 class="section-title">Completed Products & Projects</h2>
-      </div>
 
-      <!-- Category Filter Tabs -->
-      <div class="gallery-filter" id="galleryFilter">
-        <!-- Generated Dynamically by JS -->
-      </div>
-
-      <!-- Dynamic Project Cards Grid -->
-      <div class="projects-grid" id="projectsGrid">
-        <!-- Generated Dynamically by JS -->
-      </div>
-    </div>
-  </section>
 
   <!-- Lightbox Modal for Projects Details -->
   <div class="lightbox-modal" id="lightboxModal">
@@ -224,6 +231,74 @@
         <div class="lightbox-tags" id="lightboxTags">
           <!-- Dynamically populated tags -->
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Project Creator Modal -->
+  <div class="lightbox-modal" id="adminPanelModal">
+    <div class="lightbox-content" style="max-width: 950px; flex-direction: column;">
+      <div class="lightbox-close" id="closeAdminPanelBtn">&times;</div>
+      <div style="padding: 24px 30px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-size: 1.5rem; color: var(--accent); margin: 0;"><i class="fa-solid fa-screwdriver-wrench"></i> Admin Gallery Helper</h3>
+      </div>
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; padding: 20px 30px; gap: 30px; max-height: 55vh; overflow-y: auto;">
+        
+        <!-- Creator Form -->
+        <div style="flex: 1.2; min-width: 320px; display: flex; flex-direction: column; gap: 15px;">
+          <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-highlight); letter-spacing: 0.05em; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; margin-bottom: 5px;">Project Details</h4>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div>
+              <label for="adminProjName" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Project Name</label>
+              <input type="text" id="adminProjName" class="form-control" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. Smart Energy Meter" value="Microcontroller Hydroponics Controller">
+            </div>
+            <div>
+              <label for="adminProjCategory" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Category</label>
+              <input type="text" id="adminProjCategory" class="form-control" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. IoT & Power Systems" value="IoT & Power Systems">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div>
+              <label for="adminProjImage" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Image Filename or URL</label>
+              <input type="text" id="adminProjImage" class="form-control" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. images/project-hydroponics.png" value="images/project-energy-meter.png">
+            </div>
+            <div>
+              <label for="adminProjTech" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Technologies (comma-separated)</label>
+              <input type="text" id="adminProjTech" class="form-control" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. ESP32, WiFi, Relays" value="ESP32, WiFi, pH Sensor, ADC, I2C">
+            </div>
+          </div>
+
+          <div>
+            <label for="adminProjDesc" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Short Description</label>
+            <textarea id="adminProjDesc" class="form-control" style="padding: 8px 12px; font-size: 0.85rem; min-height: 60px;" placeholder="Brief overview of the project...">Smart automated agricultural growth chamber controller regulating watering intervals and pH levels dynamically.</textarea>
+          </div>
+          
+          <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button id="adminAddSessionBtn" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem; flex: 1; height: auto;">
+              <i class="fa-solid fa-play"></i> Try in Current Session
+            </button>
+            <button id="adminCopyJsonBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem; height: auto;">
+              <i class="fa-solid fa-copy"></i> Copy JSON Block
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Preview Card -->
+        <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 15px;">
+          <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-highlight); letter-spacing: 0.05em; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; margin-bottom: 5px;">Live Gallery Card Preview</h4>
+          <div id="adminCardPreviewWrapper" style="width: 100%;">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- JSON output block -->
+      <div style="padding: 20px 30px; background: rgba(0, 0, 0, 0.2); border-top: 1px solid var(--border-color);">
+        <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.05em;">JSON Code to append in data/projects.json</h4>
+        <pre><code id="adminJsonCode" style="display: block; font-family: monospace; font-size: 0.8rem; color: #a6adbb; background: rgba(5, 8, 17, 0.8); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color); overflow-x: auto; white-space: pre-wrap; word-break: break-all;"></code></pre>
       </div>
     </div>
   </div>
@@ -330,6 +405,17 @@
                 <p><a href="tel:+919930406232">+91 9930406232</a></p>
               </div>
             </div>
+
+            <!-- Email Card -->
+            <div class="contact-card">
+              <div class="contact-icon-box">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <h4>Email Address</h4>
+                <p><a href="mailto:aslamsearch@gmail.com">aslamsearch@gmail.com</a></p>
+              </div>
+            </div>
           </div>
 
           <div style="font-size: 0.875rem; color: var(--text-muted);">
@@ -339,12 +425,9 @@
 
         <!-- Glassmorphic Form Wrapper -->
         <div class="contact-form-wrapper">
-          <form id="contactForm">
-            <!-- Web3Forms Config Key -->
-            <!-- REPLACE value with your actual Web3Forms access key (e.g. from https://web3forms.com) -->
-            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-            <input type="hidden" name="subject" value="New Website Inquiry - SQUADRON">
-            <input type="hidden" name="from_name" value="SQUADRON Website Form">
+          <form id="contactForm" action="https://formspree.io/aslamsearch@gmail.com" method="POST">
+            <!-- Formspree Configuration -->
+            <input type="hidden" name="_subject" value="New Website Inquiry - SQUADRON">
             
             <div class="form-group">
               <label for="formName" class="form-label">Full Name</label>
@@ -404,9 +487,9 @@
         <h4>Navigation</h4>
         <ul>
           <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects Gallery</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects Gallery</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </div>
@@ -414,6 +497,7 @@
       <div class="footer-contact">
         <h4>Connect</h4>
         <p><i class="fa-solid fa-phone" style="color: var(--accent); margin-right: 8px;"></i> <a href="tel:+919930406232">+91 9930406232</a></p>
+        <p><i class="fa-solid fa-envelope" style="color: var(--accent); margin-right: 8px;"></i> <a href="mailto:aslamsearch@gmail.com">aslamsearch@gmail.com</a></p>
         <p><i class="fa-solid fa-location-dot" style="color: var(--accent); margin-right: 10px;"></i> 1802, KSA Heights, 2nd Sankli Street, Byculla West, Mumbai - 400008</p>
       </div>
     </div>

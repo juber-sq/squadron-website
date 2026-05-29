@@ -1,34 +1,25 @@
 [
   {
-    "id": "smart-energy-meter",
-    "name": "Smart Energy Meter",
-    "description": "Industrial multi-phase energy monitoring system designed for real-time electrical analytics, data logging, and network reporting using high-accuracy instrumentation.",
-    "technology": ["STM32", "ADE9000", "Modbus", "RS485", "FreeRTOS"],
+    "id": "iot-mcb",
+    "name": "IoT MCB",
+    "description": "Smart internet-connected Miniature Circuit Breaker (MCB) featuring remote automated trip controls, real-time current telemetry, and Wi-Fi load management overlays.",
+    "technology": ["ESP32", "Relays", "Wi-Fi", "ADC", "Telemetry Sensors"],
     "category": "IoT & Power Systems",
-    "image": "images/project-energy-meter.png"
+    "image": "images/project-iot-mcb.jpg"
   },
   {
-    "id": "boat-autopilot-controller",
-    "name": "Boat Autopilot Controller",
-    "description": "High-reliability autonomous steering and marine navigation controller that processes IMU sensor fusion and GPS coordinates for precise vessel path-following.",
-    "technology": ["STM32", "GPS", "IMU (MPU9250)", "CAN Bus", "PID Control"],
-    "category": "Embedded Systems",
-    "image": "images/project-boat-autopilot.png"
-  },
-  {
-    "id": "multilayer-pcb-design",
-    "name": "High-Density Multi-Layer PCB",
-    "description": "Advanced 8-layer PCB layout designed for high-speed signal routing, controlled impedance, and minimal electromagnetic interference (EMI) compliance.",
-    "technology": ["Altium Designer", "Impedance Matching", "BGA Routing", "HDI Layout"],
-    "category": "Custom PCB Design",
-    "image": "images/project-pcb-design.png"
-  },
-  {
-    "id": "wireless-iot-sensor",
-    "name": "Wireless Telemetry Node",
-    "description": "Low-power industrial IoT transmitter node configured with long-range radio and battery management systems for remote environments.",
-    "technology": ["ESP32", "LoRaWAN", "LiPo BMS", "I2C Sensors", "Deep Sleep Mode"],
+    "id": "precision-power-supply",
+    "name": "10V 10A CV/CC High Precision Power Supply",
+    "description": "High-stability laboratory-grade linear power supply with constant voltage (CV) and constant current (CC) regulation circuits, designed for low-ripple calibration testing.",
+    "technology": ["Linear Regulator", "CV/CC Loop", "Digital Meter", "Toroidal Transformer", "Calibration"],
     "category": "IoT & Power Systems",
-    "image": "images/project-iot-sensor.png"
+    "image": "images/project-power-supply-1.jpg",
+    "images": [
+      "images/project-power-supply-1.jpg",
+      "images/project-power-supply-2.jpg",
+      "images/project-power-supply-3.jpg",
+      "images/project-power-supply-4.jpg",
+      "images/project-power-supply-5.jpg"
+    ]
   }
 ]
