@@ -69,17 +69,38 @@
     </div>
   </section>
 
+  <!-- Projects Showcase Slider -->
+  <section class="showcase-slider">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 30px;">
+        <span class="section-subtitle">Visual Highlights</span>
+        <h2 class="section-title">Hardware & R&D Slideshow</h2>
+      </div>
+      
+      <div class="slider-container" id="sliderContainer">
+        <div class="slider-wrapper" id="showcaseSliderWrapper">
+          <!-- Dynamically populated by JS -->
+        </div>
+        
+        <button class="slider-arrow prev" id="sliderPrevBtn" aria-label="Previous Slide">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow next" id="sliderNextBtn" aria-label="Next Slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- 4. Products / Projects Gallery -->
   <section id="projects" class="projects">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">Our Work</span>
         <h2 class="section-title">Completed Products & Projects</h2>
-        <div style="margin-top: 15px;">
-          <button class="btn btn-secondary" id="openAdminPanelBtn" style="font-size: 0.85rem; padding: 8px 16px;">
-            <i class="fa-solid fa-plus" style="margin-right: 6px;"></i> Add Project Helper
-          </button>
-        </div>
+
       </div>
 
       <!-- Category Filter Tabs -->
@@ -104,6 +125,44 @@
           <p class="about-text">
             SQUADRON is an engineering hub specializing in advanced electronic product development. We translate complex product requirements into robust, deployable hardware solutions. Our cross-disciplinary expertise spans hardware schematic capture, multi-layer PCB design, low-level firmware architecture, and wireless IoT cloud integrations.
           </p>
+
+          <!-- Team Profile Cards -->
+          <div class="profile-card">
+            <div class="profile-image-box">
+              <img src="images/owner-aslam-ansari.jpg" alt="Aslam Ansari - SQUADRON Founder" class="profile-photo">
+            </div>
+            <div class="profile-details">
+              <span class="profile-badge">Engineering Leadership</span>
+              <h3 class="profile-name">Aslam Ansari</h3>
+              <p class="profile-title">Chief Engineering Lead & Founder</p>
+              <div class="profile-meta">
+                <div class="meta-item">
+                  <span class="meta-number">15+</span>
+                  <span class="meta-label">Years R&D Experience</span>
+                </div>
+              </div>
+              <p class="profile-quote">"Personally supervising all custom PCB layout design parameters, multi-layer routing stackups, and low-level firmware integration logic."</p>
+            </div>
+          </div>
+
+          <div class="profile-card">
+            <div class="profile-image-box">
+              <img src="images/team-juber-choudhari.jpg" alt="Juber Choudhari - Embedded Software Engineer" class="profile-photo">
+            </div>
+            <div class="profile-details">
+              <span class="profile-badge">Embedded Systems</span>
+              <h3 class="profile-name">Juber Choudhari</h3>
+              <p class="profile-title">Embedded Software Engineer</p>
+              <div class="profile-meta">
+                <div class="meta-item">
+                  <span class="meta-number">5+</span>
+                  <span class="meta-label">Years of Experience</span>
+                </div>
+              </div>
+              <p class="profile-quote">"Specializing in embedded firmware writing, hardware interfacing, PCB testing, and custom bootloader development."</p>
+            </div>
+          </div>
+
           <a href="#contact" class="btn btn-secondary" id="aboutBtnExplore">Get a Quote</a>
         </div>
         
@@ -235,73 +294,7 @@
     </div>
   </div>
 
-  <!-- Admin Project Creator Modal -->
-  <div class="lightbox-modal" id="adminPanelModal">
-    <div class="lightbox-content" style="max-width: 950px; flex-direction: column;">
-      <div class="lightbox-close" id="closeAdminPanelBtn">&times;</div>
-      <div style="padding: 24px 30px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
-        <h3 style="font-size: 1.5rem; color: var(--accent); margin: 0;"><i class="fa-solid fa-screwdriver-wrench"></i> Admin Gallery Helper</h3>
-      </div>
-      <div style="display: flex; flex-direction: row; flex-wrap: wrap; padding: 20px 30px; gap: 30px; max-height: 55vh; overflow-y: auto;">
-        
-        <!-- Creator Form -->
-        <div style="flex: 1.2; min-width: 320px; display: flex; flex-direction: column; gap: 15px;">
-          <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-highlight); letter-spacing: 0.05em; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; margin-bottom: 5px;">Project Details</h4>
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div>
-              <label for="adminProjName" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Project Name</label>
-              <input type="text" id="adminProjName" class="form-control" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. Smart Energy Meter" value="Microcontroller Hydroponics Controller">
-            </div>
-            <div>
-              <label for="adminProjCategory" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Category</label>
-              <input type="text" id="adminProjCategory" class="form-control" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. IoT & Power Systems" value="IoT & Power Systems">
-            </div>
-          </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div>
-              <label for="adminProjImage" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Image Filename or URL</label>
-              <input type="text" id="adminProjImage" class="form-control" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. images/project-hydroponics.png" value="images/project-energy-meter.png">
-            </div>
-            <div>
-              <label for="adminProjTech" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Technologies (comma-separated)</label>
-              <input type="text" id="adminProjTech" class="form-control" style="padding: 8px 12px; font-size: 0.85rem;" placeholder="e.g. ESP32, WiFi, Relays" value="ESP32, WiFi, pH Sensor, ADC, I2C">
-            </div>
-          </div>
-
-          <div>
-            <label for="adminProjDesc" class="form-label" style="font-size: 0.8rem; margin-bottom: 4px;">Short Description</label>
-            <textarea id="adminProjDesc" class="form-control" style="padding: 8px 12px; font-size: 0.85rem; min-height: 60px;" placeholder="Brief overview of the project...">Smart automated agricultural growth chamber controller regulating watering intervals and pH levels dynamically.</textarea>
-          </div>
-          
-          <div style="display: flex; gap: 10px; margin-top: 10px;">
-            <button id="adminAddSessionBtn" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem; flex: 1; height: auto;">
-              <i class="fa-solid fa-play"></i> Try in Current Session
-            </button>
-            <button id="adminCopyJsonBtn" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem; height: auto;">
-              <i class="fa-solid fa-copy"></i> Copy JSON Block
-            </button>
-          </div>
-        </div>
-
-        <!-- Live Preview Card -->
-        <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 15px;">
-          <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-highlight); letter-spacing: 0.05em; border-bottom: 1px solid var(--border-color); padding-bottom: 5px; margin-bottom: 5px;">Live Gallery Card Preview</h4>
-          <div id="adminCardPreviewWrapper" style="width: 100%;">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-
-      </div>
-
-      <!-- JSON output block -->
-      <div style="padding: 20px 30px; background: rgba(0, 0, 0, 0.2); border-top: 1px solid var(--border-color);">
-        <h4 style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.05em;">JSON Code to append in data/projects.json</h4>
-        <pre><code id="adminJsonCode" style="display: block; font-family: monospace; font-size: 0.8rem; color: #a6adbb; background: rgba(5, 8, 17, 0.8); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color); overflow-x: auto; white-space: pre-wrap; word-break: break-all;"></code></pre>
-      </div>
-    </div>
-  </div>
 
   <!-- 5. Why Choose Us Section -->
   <section id="why-us" class="why-us">

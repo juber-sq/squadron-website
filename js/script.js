@@ -389,185 +389,114 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Admin Panel Controls
-  const openAdminPanelBtn = document.getElementById('openAdminPanelBtn');
-  const closeAdminPanelBtn = document.getElementById('closeAdminPanelBtn');
-  const adminPanelModal = document.getElementById('adminPanelModal');
 
-  // Input elements
-  const adminProjName = document.getElementById('adminProjName');
-  const adminProjCategory = document.getElementById('adminProjCategory');
-  const adminProjImage = document.getElementById('adminProjImage');
-  const adminProjTech = document.getElementById('adminProjTech');
-  const adminProjDesc = document.getElementById('adminProjDesc');
-  
-  // Output elements
-  const adminCardPreviewWrapper = document.getElementById('adminCardPreviewWrapper');
-  const adminJsonCode = document.getElementById('adminJsonCode');
-  const adminAddSessionBtn = document.getElementById('adminAddSessionBtn');
-  const adminCopyJsonBtn = document.getElementById('adminCopyJsonBtn');
+  // Projects Showcase Slider Logic
+  const sliderWrapper = document.getElementById('showcaseSliderWrapper');
+  const sliderDotsContainer = document.getElementById('sliderDots');
+  const sliderPrevBtn = document.getElementById('sliderPrevBtn');
+  const sliderNextBtn = document.getElementById('sliderNextBtn');
+  const sliderContainer = document.getElementById('sliderContainer');
 
-  if (openAdminPanelBtn && adminPanelModal) {
-    openAdminPanelBtn.addEventListener('click', () => {
-      adminPanelModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      updateAdminPreview();
-    });
-  }
+  const slideItems = [
+    'images/slide_images/slide1.jpg',
+    'images/slide_images/slide2.jpg',
+    'images/slide_images/slide3.jpg',
+    'images/slide_images/slide4.jpg',
+    'images/slide_images/slide5.jpg',
+    'images/slide_images/slide6.jpg'
+  ];
 
-  function closeAdminPanel() {
-    if (adminPanelModal) {
-      adminPanelModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  if (closeAdminPanelBtn) {
-    closeAdminPanelBtn.addEventListener('click', closeAdminPanel);
-  }
-
-  if (adminPanelModal) {
-    adminPanelModal.addEventListener('click', (e) => {
-      if (e.target === adminPanelModal) {
-        closeAdminPanel();
+  if (sliderWrapper && sliderDotsContainer) {
+    // Fisher-Yates Shuffle Utility to randomize slide order
+    function shuffleSlides(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
-    });
-  }
+      return array;
+    }
 
-  // Generate URL slug from project title
-  function slugify(text) {
-    return text.toString().toLowerCase().trim()
-      .replace(/\s+/g, '-')           // Replace spaces with -
-      .replace(/&/g, '-and-')         // Replace & with 'and'
-      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-      .replace(/\-\-+/g, '-');        // Replace multiple - with single -
-  }
+    const shuffledSlides = shuffleSlides([...slideItems]);
+    let currentSlide = 0;
+    let autoPlayTimer = null;
 
-  // Update Preview Card and JSON Output
-  function updateAdminPreview() {
-    if (!adminProjName || !adminCardPreviewWrapper || !adminJsonCode) return;
-
-    const name = adminProjName.value || 'Project Name';
-    const category = adminProjCategory.value || 'Embedded Systems';
-    const image = adminProjImage.value || 'images/project-energy-meter.png';
-    const desc = adminProjDesc.value || 'Short description of the hardware project.';
-    
-    // Parse technologies text
-    const techText = adminProjTech.value || 'STM32, Modbus';
-    const technologies = techText.split(',').map(t => t.trim()).filter(t => t.length > 0);
-
-    const slug = slugify(name);
-
-    // Render Preview Card
-    adminCardPreviewWrapper.innerHTML = `
-      <div class="project-card" style="margin: 0; max-width: 100%;">
-        <div class="project-image-box">
-          <img src="${image}" alt="${name}" class="project-img" onerror="this.src='images/project-energy-meter.png'">
-          <div class="project-image-overlay">
-            <div class="zoom-icon">🔍</div>
-          </div>
-        </div>
-        <div class="project-info">
-          <div class="project-meta">
-            <span class="project-category">${category}</span>
-          </div>
-          <h3 class="project-title">${name}</h3>
-          <p class="project-desc">${desc}</p>
-          <div class="project-tags">
-            ${technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
-          </div>
-        </div>
+    // Render slide items
+    sliderWrapper.innerHTML = shuffledSlides.map(src => `
+      <div class="slide">
+        <img src="${src}" alt="Showcase Slide Image">
       </div>
-    `;
+    `).join('');
 
-    // Render JSON output block
-    const jsonObj = {
-      id: slug,
-      name: name,
-      description: desc,
-      technology: technologies,
-      category: category,
-      image: image
-    };
+    // Render dot indicators
+    sliderDotsContainer.innerHTML = shuffledSlides.map((_, i) => `
+      <span class="slider-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>
+    `).join('');
 
-    adminJsonCode.textContent = JSON.stringify(jsonObj, null, 2);
-  }
+    const dots = sliderDotsContainer.querySelectorAll('.slider-dot');
 
-  // Attach input listeners for live updates
-  const inputs = [adminProjName, adminProjCategory, adminProjImage, adminProjTech, adminProjDesc];
-  inputs.forEach(input => {
-    if (input) {
-      input.addEventListener('input', updateAdminPreview);
-    }
-  });
-
-  // Inject Project into Current Session in-memory
-  if (adminAddSessionBtn) {
-    adminAddSessionBtn.addEventListener('click', () => {
-      if (!adminProjName) return;
-
-      const name = adminProjName.value || 'New Project';
-      const category = adminProjCategory.value || 'Embedded Systems';
-      const image = adminProjImage.value || 'images/project-energy-meter.png';
-      const desc = adminProjDesc.value || '';
-      const techText = adminProjTech.value || '';
-      const technologies = techText.split(',').map(t => t.trim()).filter(t => t.length > 0);
-      const slug = slugify(name);
-
-      const newProject = {
-        id: slug,
-        name: name,
-        description: desc,
-        technology: technologies,
-        category: category,
-        image: image
-      };
-
-      // Avoid duplicates in memory
-      const index = projectsData.findIndex(p => p.id === slug);
-      if (index > -1) {
-        projectsData[index] = newProject;
-      } else {
-        projectsData.push(newProject);
-      }
-
-      // Re-render Gallery
-      renderFilterButtons(projectsData);
-      renderProjects(projectsData);
-
-      // Flash success on button
-      const originalText = adminAddSessionBtn.innerHTML;
-      adminAddSessionBtn.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
-      adminAddSessionBtn.style.background = '#10b981';
+    function goToSlide(index) {
+      currentSlide = (index + shuffledSlides.length) % shuffledSlides.length;
+      sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
       
-      setTimeout(() => {
-        adminAddSessionBtn.innerHTML = originalText;
-        adminAddSessionBtn.style.background = '';
-        closeAdminPanel();
-        
-        // Scroll to projects grid dynamically
-        const projGrid = document.getElementById('projectsGrid');
-        if (projGrid) {
-          projGrid.scrollIntoView({ behavior: 'smooth' });
+      // Update active classes on dots
+      dots.forEach((dot, i) => {
+        if (i === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
         }
-      }, 1000);
-    });
-  }
+      });
+    }
 
-  // Copy JSON Code block to clipboard
-  if (adminCopyJsonBtn && adminJsonCode) {
-    adminCopyJsonBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(adminJsonCode.textContent)
-        .then(() => {
-          const originalText = adminCopyJsonBtn.innerHTML;
-          adminCopyJsonBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-          setTimeout(() => {
-            adminCopyJsonBtn.innerHTML = originalText;
-          }, 1500);
-        })
-        .catch(err => {
-          console.error('Could not copy JSON code: ', err);
-        });
+    // Controls Event Listeners
+    if (sliderPrevBtn) {
+      sliderPrevBtn.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+        resetAutoPlay();
+      });
+    }
+
+    if (sliderNextBtn) {
+      sliderNextBtn.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+        resetAutoPlay();
+      });
+    }
+
+    // Dot Navigation Event Listeners
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const index = parseInt(e.target.getAttribute('data-index'));
+        goToSlide(index);
+        resetAutoPlay();
+      });
     });
+
+    // Auto Play Functionality
+    function startAutoPlay() {
+      autoPlayTimer = setInterval(() => {
+        goToSlide(currentSlide + 1);
+      }, 5000); // Change slides every 5 seconds
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+      }
+    }
+
+    function resetAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    // Pause autoplay on mouse enter
+    if (sliderContainer) {
+      sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+      sliderContainer.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Start auto play initially
+    startAutoPlay();
   }
 });
